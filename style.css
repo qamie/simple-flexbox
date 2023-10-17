@@ -27,17 +27,63 @@ img {
 }
 
 #row {
+    /* use flexbox on the parent div to layout a row or collumn of child divs*/
     display: flex;
+    /* use row for desktop and tablet layout */
     flex-direction: row;
+    /* wrap is used with tablet layout to create an extra row */
     flex-wrap: wrap;
 }
 
 .column {
+    /* flex: 1 sets flex-grow to 1, flex-shrink to 1 and flex-basis to 1 
+    flex-basis of 1 means child column will have equal width */
     flex: 1;
+    /* because box sizing = border box, padding is counted as part 
+    of the overall width of the column */
+    padding: 10px;
+}
+
+#col1 {
+    background-color: rgb(255, 118, 118);
+}
+
+#col2 {
+    background-color: rgb(18, 126, 126);
+}
+
+#col3 {
+    background-color: rgb(150, 150, 255);
+}
+
+#col4 {
+    background-color: rgb(129, 228, 167);
 }
 
 #footer {
     background-color: rgb(153, 81, 44);
     padding: 30px;
     text-align: center;
+}
+/* break point for tablet */
+@media screen and (max-width: 900px) {
+    .column {
+        min-width: 50%;
+    }
+}
+/* break point for mobile */
+@media screen and (max-width: 500px) {
+    .column {
+        min-width: 100%;
+    }
+
+    .row {
+        flex-direction: column;
+    }
+    h1{
+        font-size: 4rem;
+    }
+    p{
+        font-size: 1.7rem;
+    }
 }
